@@ -1,0 +1,354 @@
+---
+title: Dropdown
+root: '/docs'
+parents: ['Components']
+---
+
+import { ComponentPreview } from '../../../../src/pages/components/ComponentPreview.tsx'
+import { CodePreview } from '../../../../src/pages/components/CodePreview.tsx'
+import { HtmlCodeBlock } from '../../../../src/pages/components/HtmlCodeBlock.tsx'
+import { ReactCodeBlock } from '../../../../src/pages/components/ReactCodeBlock.tsx'
+import Dropdown from 'react-bootstrap/Dropdown'
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import SplitButton from 'react-bootstrap/SplitButton'
+import Accordion from 'react-bootstrap/Accordion'
+import Nav from 'react-bootstrap/Nav'
+import Button from 'react-bootstrap/Button'
+
+
+# Dropdown Menu
+
+Dropdowns present a list of options that can be used to filter existing content. They can also be used for nested menu items or in responsive views for components such as tabs. For multi-level dropdowns, it is recommended to limit options to 1-2 additional levels as it can get confusing for the user.
+
+<ComponentPreview>
+<Dropdown>
+  <Dropdown.Toggle variant="secondary" caret>
+    Dropdown Button
+  </Dropdown.Toggle>
+  <Dropdown.Menu>
+    <Dropdown.Item href="#">Action</Dropdown.Item>
+    <Dropdown.Item href="#">Another action</Dropdown.Item>
+    <Dropdown.Item href="#">Something else</Dropdown.Item>
+  </Dropdown.Menu>
+</Dropdown>
+</ComponentPreview>
+
+
+
+<CodePreview>
+<HtmlCodeBlock>
+
+```  html
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown button
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else</a>
+    </div>
+</div>
+```
+
+</HtmlCodeBlock>
+<ReactCodeBlock>
+
+```html
+<Dropdown>
+    <Dropdown.Toggle variant="secondary" caret>
+        Dropdown Button
+    </Dropdown.Toggle>
+    <Dropdown.Menu>
+        <Dropdown.Item href="#">Action</Dropdown.Item>
+        <Dropdown.Item href="#">Another action</Dropdown.Item>
+        <Dropdown.Item href="#">Something else</Dropdown.Item>
+    </Dropdown.Menu>
+</Dropdown>
+```
+
+</ReactCodeBlock>
+</CodePreview>
+
+## Multi-Level Dropdown Menu
+
+In this dropdown menu, we have multi-leveled dropdowns which allows users to have the option to select certain things based on a subject/category.
+
+<ComponentPreview>
+	<Dropdown>
+		<Dropdown.Toggle variant="secondary" caret>Dropdown</Dropdown.Toggle>
+		<Dropdown.Menu>
+			<Dropdown.Item>First Level</Dropdown.Item>
+			<Dropdown.Item>First Level</Dropdown.Item>
+            <Dropdown drop="right">
+                <Dropdown.Toggle as="a" role="button" className="dropdown-item" caret>Click to see more…</Dropdown.Toggle>
+                <Dropdown.Menu >
+                    <Dropdown.Item>Second Level</Dropdown.Item>
+                </Dropdown.Menu>
+            </Dropdown>
+			<Dropdown.Item>First Level</Dropdown.Item>
+			<Dropdown.Item>First Level</Dropdown.Item>     
+		</Dropdown.Menu>
+	</Dropdown>
+</ComponentPreview>
+
+```  html
+<div class="dropdown">
+    <button type="button" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle btn btn-secondary">Dropdown</button>
+    <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
+        <button type="button" tabindex="0" role="menuitem" class="dropdown-item">First Level</button>
+        <button type="button" tabindex="0" role="menuitem" class="dropdown-item">First Level</button>
+        <button type="button" tabindex="0" role="menuitem" id="toggler" class="dropdown-toggle btn btn-secondary">Toggle</button>
+        <div toggler="#toggler" class="dropdown-submenu collapse">
+            <button type="button" tabindex="0" role="menuitem" class="dropdown-item">Second Level</button>
+            <button type="button" tabindex="0" role="menuitem" class="dropdown-item">Second Level</button>
+        </div>
+        <button type="button" tabindex="0" role="menuitem" class="dropdown-item">First Level</button>
+        <button type="button" tabindex="0" role="menuitem" class="dropdown-item">First Level</button>
+    </div>
+</div>
+```
+
+## Dropdown directions
+
+<ComponentPreview>
+  <ButtonToolbar>
+    {['up', 'down', 'left', 'right'].map(direction => (
+      <DropdownButton
+        drop={direction}
+        variant="secondary"
+        title={` Drop ${direction} `}
+        id={`dropdown-button-drop-${direction}`}
+        key={direction}
+        className="mr-3"
+      >
+        <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+        <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+        <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
+        <Dropdown.Divider />
+        <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+      </DropdownButton>
+    ))}
+  </ButtonToolbar>
+</ComponentPreview>
+
+
+<CodePreview>
+<HtmlCodeBlock>
+
+```html
+<!-- Default dropup button -->
+<div class="btn-group dropup">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Drop up
+    </button>
+    <div class="dropdown-menu">
+        <a href="#">Action</a>
+        <a href="#">Another action</a>
+        <a href="#">Something else here</a>
+    </div>
+</div>
+<!-- Default dropdown button -->
+<div class="btn-group dropdown">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Drop down
+    </button>
+    <div class="dropdown-menu">
+        <a href="#">Action</a>
+        <a href="#">Another action</a>
+        <a href="#">Something else here</a>
+    </div>
+</div>
+<!-- Default dropleft button -->
+<div class="btn-group dropleft">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Drop left
+    </button>
+    <div class="dropdown-menu">
+        <a href="#">Action</a>
+        <a href="#">Another action</a>
+        <a href="#">Something else here</a>
+    </div>
+</div>
+<!-- Default dropright button -->
+<div class="btn-group dropright">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Drop right
+    </button>
+    <div class="dropdown-menu">
+        <a href="#">Action</a>
+        <a href="#">Another action</a>
+        <a href="#">Something else here</a>
+    </div>
+</div>
+```
+
+</HtmlCodeBlock>
+<ReactCodeBlock>
+
+```html
+<DropdownButton drop="up" variant="secondary" title="Drop up" id="dropdown-button-drop-up" key="up" className="mr-3">
+    <Dropdown.Item>Action</Dropdown.Item>
+    <Dropdown.Item>Another action</Dropdown.Item>
+    <Dropdown.Item>Something else here</Dropdown.Item>
+    <Dropdown.Divider />
+    <Dropdown.Item>Separated link</Dropdown.Item>
+</DropdownButton>
+<DropdownButton drop="down" variant="secondary" title="Drop down" id="dropdown-button-drop-down" key="down" className="mr-3">
+    <Dropdown.Item>Action</Dropdown.Item>
+    <Dropdown.Item>Another action</Dropdown.Item>
+    <Dropdown.Item>Something else here</Dropdown.Item>
+    <Dropdown.Divider />
+    <Dropdown.Item>Separated link</Dropdown.Item>
+</DropdownButton>
+<DropdownButton drop="left" variant="secondary" title="Drop left" id="dropdown-button-drop-left" key="left" className="mr-3">
+    <Dropdown.Item>Action</Dropdown.Item>
+    <Dropdown.Item>Another action</Dropdown.Item>
+    <Dropdown.Item>Something else here</Dropdown.Item>
+    <Dropdown.Divider />
+    <Dropdown.Item>Separated link</Dropdown.Item>
+</DropdownButton>
+<DropdownButton drop="right" variant="secondary" title="Drop right" id="dropdown-button-drop-right" key="right" className="mr-3">
+    <Dropdown.Item>Action</Dropdown.Item>
+    <Dropdown.Item>Another action</Dropdown.Item>
+    <Dropdown.Item>Something else here</Dropdown.Item>
+    <Dropdown.Divider />
+    <Dropdown.Item>Separated link</Dropdown.Item>
+</DropdownButton>
+```
+
+</ReactCodeBlock>
+</CodePreview>
+
+
+## Split Button Dropdown
+
+<ComponentPreview>
+    <Dropdown as={ButtonGroup}>
+        <Button variant="secondary">Split Button</Button>
+        <Dropdown.Toggle split variant="secondary" id="dropdown-split-basic" />
+        <Dropdown.Menu>
+            <Dropdown.Item href="#">Action</Dropdown.Item>
+            <Dropdown.Item href="#">Another action</Dropdown.Item>
+            <Dropdown.Item href="#">Something else</Dropdown.Item>
+        </Dropdown.Menu>
+    </Dropdown>
+</ComponentPreview>
+
+<CodePreview>
+<HtmlCodeBlock>
+
+```html
+<div role="group" class="dropdown btn-group">
+    <button type="button" class="btn btn-secondary dropdown-toggle-split ">Split Button</button>
+    <button aria-haspopup="true" aria-expanded="false" id="dropdown-split-basic" type="button" class="dropdown-toggle dropdown-toggle-split btn btn-secondary">
+    </button>
+    <div aria-labelledby="dropdown-split-basic" class="dropdown-menu">
+        <a href="#" class="dropdown-item">Action</a>
+        <a href="#" class="dropdown-item">Another action</a>
+        <a href="#" class="dropdown-item">Something else</a>
+    </div>
+</div>
+```
+
+</HtmlCodeBlock>
+<ReactCodeBlock>
+
+```html
+<Dropdown as={ButtonGroup}>
+    <Button variant="secondary">Split Button</Button>
+    <Dropdown.Toggle split variant="secondary" id="dropdown-split-basic" />
+    <Dropdown.Menu>
+        <Dropdown.Item href="#">Action</Dropdown.Item>
+        <Dropdown.Item href="#">Another action</Dropdown.Item>
+        <Dropdown.Item href="#">Something else</Dropdown.Item>
+    </Dropdown.Menu>
+</Dropdown>
+```
+
+</ReactCodeBlock>
+</CodePreview>
+
+<!-- ### Navbar with Multi-Level Dropdown Menu
+
+    <ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" href="#">Active</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Separated link</a>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    </li>
+    </ul>
+
+We also can do dropdowns in forms.
+
+### Menu Forms
+
+Put a form within a dropdown menu, or make it into a dropdown menu, and use `margin or padding utilities` to give it the negative space you require.
+
+### Simple Dropdown Menu Form
+
+    <div class="dropdown-menu">
+    <form class="px-4 py-3">
+        <div class="form-group">
+        <label for="exampleDropdownFormEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+        </div>
+        <div class="form-group">
+        <label for="exampleDropdownFormPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+        </div>
+        <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="dropdownCheck">
+        <label class="form-check-label" for="dropdownCheck">
+            Remember me
+        </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+    </form>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">New around here? Sign up</a>
+    <a class="dropdown-item" href="#">Forgot password?</a>
+    </div> -->
+
+You can also change the directions of the dropdowns to become droplefts. droprights or dropups.
+
+<table>
+<thead>
+    <th>Class</th>
+    <th>Direction</th>
+
+</thead>
+<tbody>
+    <tr>
+        <td><code>.dropdown</code></td>
+        <td>Down</td>
+    </tr>
+    <tr>
+        <td><code>.dropright</code></td>
+        <td>Right</td>
+    </tr>
+    <tr>
+        <td><code>.dropleft</code></td>
+        <td>Left</td>
+    </tr>
+    <tr>
+        <td><code>.dropup</code></td>
+        <td>Up</td>
+    </tr>
+</tbody>
+</table>

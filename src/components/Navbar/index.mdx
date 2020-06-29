@@ -1,0 +1,608 @@
+---
+title: Navbar
+root: '/docs'
+parents: ['Components']
+---
+
+import logo from '../../../../src/images/Staples_Logo_EN.svg'
+import logo_white from '../../../../src/images/Staples_Logo_White_EN.svg'
+
+import { ComponentPreview } from '../../../../src/pages/components/ComponentPreview.tsx'
+import { CodePreview } from '../../../../src/pages/components/CodePreview.tsx'
+import { HtmlCodeBlock } from '../../../../src/pages/components/HtmlCodeBlock.tsx'
+import { ReactCodeBlock } from '../../../../src/pages/components/ReactCodeBlock.tsx'
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
+import NavDropdown from 'react-bootstrap/NavDropdown'
+import Form from 'react-bootstrap/Form'
+import FormControl from 'react-bootstrap/FormControl'
+import Button from 'react-bootstrap/Button'
+import Image from 'react-bootstrap/Image'
+
+# Navbar
+
+A navigation bar is a section of a user interface intended to aid visitors in accessing information and navigating a site. Navigation bars are implemented in file browsers, web browsers and as a design element of web sites.
+
+## Responsive
+
+Navbars are responsive by default. Their responsive behavior depends on the Collapse JavaScript plugin, and wrapping `.navbar` with `.navbar-expand{-sm|-md|-lg|-xl}`for responsive collapsing. If you prefer to limit a navbar's horizontal width, you can use containers to do so.
+
+## Supported content
+
+Navbars have built-in support for a handful of sub-components. Choose from the following as needed:
+
+- `.navbar-brand` for your company, product, or project name.
+- `.navbar-nav` for a full-height and lightweight navigation (including support for dropdowns).
+- `.navbar-toggler` for use with our collapse plugin and other navigation toggling behaviors.
+- `.form-inline` for any form controls and actions.
+- `.navbar-text` for adding vertically centered strings of text.
+- `.collapse.navbar-collapse` for grouping and hiding navbar contents by a parent breakpoint.
+
+Here’s what you need to know before getting started with the Navbar:
+
+- Navbars and their contents are fluid by default. Use optional containers to limit their horizontal width.
+- Use spacing and flex utilities to size and position content
+
+A responsive navigation header, including support for branding, navigation, and more. Here’s an example of all the sub-components included in a responsive light-themed navbar that automatically collapses at the lg (large) breakpoint.
+
+<ComponentPreview>
+  <Navbar bg="light" expand="lg">
+    <Navbar.Brand href="#home">Staples Inc.</Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav">
+      <Nav className="mr-auto">
+        <Nav.Link href="#home">Home</Nav.Link>
+        <Nav.Link href="#link">Link</Nav.Link>
+        <NavDropdown title="Dropdown" id="basic-nav-dropdown" caret>
+          <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+        </NavDropdown>
+        <Nav.Link href="#link">Link</Nav.Link>
+      </Nav>
+      <Form inline>
+        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+        <Button variant="secondary">Search</Button>
+      </Form>
+    </Navbar.Collapse>
+  </Navbar>
+</ComponentPreview>
+
+<CodePreview>
+<HtmlCodeBlock>
+
+```html
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">
+        Search
+      </button>
+    </form>
+  </div>
+</nav>
+```
+
+</HtmlCodeBlock>
+<ReactCodeBlock>
+
+```html
+<Navbar bg="light" expand="lg">
+  <Navbar.Brand href="#home">Staples Inc.</Navbar.Brand>
+  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+  <Navbar.Collapse id="basic-navbar-nav">
+    <nav className="mr-auto">
+      <Nav.Link href="#">Home</Nav.Link>
+      <Nav.Link href="#">Link</Nav.Link>
+      <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+        <NavDropdown.Item href="#">Action</NavDropdown.Item>
+        <NavDropdown.Item href="#">Another action</NavDropdown.Item>
+        <NavDropdown.Item href="#">Something</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item href="#">Separated link</NavDropdown.Item>
+      </NavDropdown>
+    </nav>
+    <form inline>
+      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+      <button variant="secondary">Search</button>
+    </form>
+  </Navbar.Collapse>
+</Navbar>
+```
+
+</ReactCodeBlock>
+</CodePreview>
+
+## Brand
+
+The `.navbar-brand` can be applied to most elements, but an anchor works best as some elements might require utility classes or custom styles.
+
+<ComponentPreview>
+  <h4> Text Based </h4>
+  <Navbar bg="light">
+    <Navbar.Brand href="#">Brand link</Navbar.Brand>
+  </Navbar>
+  <br />
+  <h4>Image Based </h4>
+  <Navbar bg="light">
+    <Navbar.Brand href="#">
+      <Image src={logo} alt="Staples Logo" height="35" />
+    </Navbar.Brand>
+  </Navbar>
+</ComponentPreview>
+
+<CodePreview>
+<HtmlCodeBlock>
+
+```html
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">Brand link</a>
+</nav>
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="...." height="35" alt="Staples Logo" />
+  </a>
+</nav>
+```
+
+</HtmlCodeBlock>
+<ReactCodeBlock>
+
+```html
+<Navbar bg="light">
+  <Navbar.Brand href="#">Brand link</Navbar.Brand>
+</Navbar>
+<Navbar bg="light">
+  <Navbar.Brand href="#">
+    <image src="{logo}" alt="Staples Logo" height="35" />
+  </Navbar.Brand>
+</Navbar>
+```
+
+</ReactCodeBlock>
+</CodePreview>
+
+## Nav
+
+Navbar navigation links build on our `.nav` options with their own modifier class and require the use of toggler classes for proper responsive styling. **Navigation in navbars will also grow to occupy as much horizontal space as possible** to keep your navbar contents securely aligned.
+
+Active states—with `.active`—to indicate the current page can be applied directly to `.nav-link`s or their immediate parent `.nav-item`s.
+And because we use classes for our navs, you can avoid the list-based approach entirely if you like.
+
+You may also utilize dropdowns in your navbar nav. Dropdown menus require a wrapping element for positioning, so be sure to use separate and nested elements for `.nav-item` and `.nav-link` as shown below.
+
+### Navbar with Dropdown
+
+<ComponentPreview>
+  <Navbar bg="light" expand="lg">
+    <Navbar.Brand href="#home">Staples Inc.</Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav">
+      <Nav className="mr-auto">
+        <Nav.Link href="#home">Test link 1</Nav.Link>
+        <Nav.Link href="#link">Test link 2</Nav.Link>
+        <NavDropdown title="Dropdown" id="basic-nav-dropdown" caret>
+          <NavDropdown.Item href="#">Option 1</NavDropdown.Item>
+          <NavDropdown.Item href="#">Option 2</NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item href="#">Another Option</NavDropdown.Item>
+        </NavDropdown>
+      </Nav>
+    </Navbar.Collapse>
+  </Navbar>
+</ComponentPreview>
+
+<CodePreview>
+<HtmlCodeBlock>
+
+```html
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <a href="/" class="navbar-brand"><img src="{logo}" style="height: 30px;"/></a
+  ><button id="toggler" type="button" class="navbar-toggler">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div toggler="#toggler" class="collapse navbar-collapse">
+    <ul class="ml-auto navbar-nav">
+      <li class="nav-item"><a href="#" class="nav-link">Test link 1</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Test Link 2</a></li>
+      <li class="dropdown nav-item">
+        <a
+          aria-haspopup="true"
+          href="#"
+          class="dropdown-toggle nav-link"
+          aria-expanded="false"
+          >Options</a
+        >
+        <div
+          tabindex="-1"
+          role="menu"
+          aria-hidden="true"
+          class="dropdown-menu dropdown-menu-right"
+        >
+          <button
+            type="button"
+            tabindex="0"
+            role="menuitem"
+            class="dropdown-item"
+          >
+            Option 1
+          </button>
+          <button
+            type="button"
+            tabindex="0"
+            role="menuitem"
+            class="dropdown-item"
+          >
+            Option 2
+          </button>
+          <div tabindex="-1" class="dropdown-divider"></div>
+          <button
+            type="button"
+            tabindex="0"
+            role="menuitem"
+            class="dropdown-item"
+          >
+            Another Option
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+```
+
+</HtmlCodeBlock>
+<ReactCodeBlock>
+
+```html
+<Navbar bg="light" expand="lg">
+  <Navbar.Brand href="#home">Staples Inc.</Navbar.Brand>
+  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+  <Navbar.Collapse id="basic-navbar-nav">
+    <nav className="mr-auto">
+      <Nav.Link href="#home">Test link 1</Nav.Link>
+      <Nav.Link href="#link">Test link 2</Nav.Link>
+      <NavDropdown title="Dropdown" id="basic-nav-dropdown" caret>
+        <NavDropdown.Item href="#">Option 1</NavDropdown.Item>
+        <NavDropdown.Item href="#">Option 2</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item href="#">Another Option</NavDropdown.Item>
+      </NavDropdown>
+    </nav>
+  </Navbar.Collapse>
+</Navbar>
+```
+
+</ReactCodeBlock>
+</CodePreview>
+
+## Colour Schemes
+
+The navbar styling for Staples sub-sites can either be coloured in our brand red, lightest-gray or charcoal. The Staples logo should be left-justified with nav links right-justified on the same line.
+
+<ComponentPreview>
+  <h4>Primary Theme</h4>
+  <Navbar bg="primary" variant="dark">
+    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+    <Nav className="mr-auto">
+      <Nav.Link href="#home">Home</Nav.Link>
+      <Nav.Link href="#features">Features</Nav.Link>
+      <Nav.Link href="#pricing">Pricing</Nav.Link>
+    </Nav>
+  </Navbar>
+  <br />
+  <h4>Light-Gray Theme</h4>
+  <Navbar bg="light" variant="light">
+    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+    <Nav className="mr-auto">
+      <Nav.Link href="#home">Home</Nav.Link>
+      <Nav.Link href="#features">Features</Nav.Link>
+      <Nav.Link href="#pricing">Pricing</Nav.Link>
+    </Nav>
+  </Navbar>
+  <br />
+  <h4>Charcoal Theme</h4>
+  <Navbar bg="dark" variant="dark">
+    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+    <Nav className="mr-auto">
+      <Nav.Link href="#home">Home</Nav.Link>
+      <Nav.Link href="#features">Features</Nav.Link>
+      <Nav.Link href="#pricing">Pricing</Nav.Link>
+    </Nav>
+  </Navbar>
+</ComponentPreview>
+
+<CodePreview>
+<HtmlCodeBlock>
+
+```html
+<!-- Primary Theme -->
+<nav class="navbar navbar-dark bg-primary">
+  <div toggler="#toggler" class="collapse navbar-collapse">
+    <ul class="ml-auto navbar-nav">
+      <li class="nav-item"><a href="#" class="nav-link">Test link 1</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Test Link 2</a></li>
+      <li class="dropdown nav-item">
+        <a
+          aria-haspopup="true"
+          href="#"
+          class="dropdown-toggle nav-link"
+          aria-expanded="false"
+          >Options</a
+        >
+        <div
+          tabindex="-1"
+          role="menu"
+          aria-hidden="true"
+          class="dropdown-menu dropdown-menu-right"
+        >
+          <button
+            type="button"
+            tabindex="0"
+            role="menuitem"
+            class="dropdown-item"
+          >
+            Option 1
+          </button>
+          <button
+            type="button"
+            tabindex="0"
+            role="menuitem"
+            class="dropdown-item"
+          >
+            Option 2
+          </button>
+          <div tabindex="-1" class="dropdown-divider"></div>
+          <button
+            type="button"
+            tabindex="0"
+            role="menuitem"
+            class="dropdown-item"
+          >
+            Another Option
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Light-Gray Theme -->
+<nav class="navbar navbar-light bg-light">
+  <div toggler="#toggler" class="collapse navbar-collapse">
+    <ul class="ml-auto navbar-nav">
+      <li class="nav-item"><a href="#" class="nav-link">Test link 1</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Test Link 2</a></li>
+      <li class="dropdown nav-item">
+        <a
+          aria-haspopup="true"
+          href="#"
+          class="dropdown-toggle nav-link"
+          aria-expanded="false"
+          >Options</a
+        >
+        <div
+          tabindex="-1"
+          role="menu"
+          aria-hidden="true"
+          class="dropdown-menu dropdown-menu-right"
+        >
+          <button
+            type="button"
+            tabindex="0"
+            role="menuitem"
+            class="dropdown-item"
+          >
+            Option 1
+          </button>
+          <button
+            type="button"
+            tabindex="0"
+            role="menuitem"
+            class="dropdown-item"
+          >
+            Option 2
+          </button>
+          <div tabindex="-1" class="dropdown-divider"></div>
+          <button
+            type="button"
+            tabindex="0"
+            role="menuitem"
+            class="dropdown-item"
+          >
+            Another Option
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Charcoal Theme -->
+<nav class="navbar navbar-dark">
+  <div toggler="#toggler" class="collapse navbar-collapse">
+    <ul class="ml-auto navbar-nav">
+      <li class="nav-item"><a href="#" class="nav-link">Test link 1</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Test Link 2</a></li>
+      <li class="dropdown nav-item">
+        <a
+          aria-haspopup="true"
+          href="#"
+          class="dropdown-toggle nav-link"
+          aria-expanded="false"
+          >Options</a
+        >
+        <div
+          tabindex="-1"
+          role="menu"
+          aria-hidden="true"
+          class="dropdown-menu dropdown-menu-right"
+        >
+          <button
+            type="button"
+            tabindex="0"
+            role="menuitem"
+            class="dropdown-item"
+          >
+            Option 1
+          </button>
+          <button
+            type="button"
+            tabindex="0"
+            role="menuitem"
+            class="dropdown-item"
+          >
+            Option 2
+          </button>
+          <div tabindex="-1" class="dropdown-divider"></div>
+          <button
+            type="button"
+            tabindex="0"
+            role="menuitem"
+            class="dropdown-item"
+          >
+            Another Option
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+```
+
+</HtmlCodeBlock>
+<ReactCodeBlock>
+
+```html
+  <Navbar bg="primary" variant="dark">
+    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+    <Nav className="mr-auto">
+      <Nav.Link href="#home">Home</Nav.Link>
+      <Nav.Link href="#features">Features</Nav.Link>
+      <Nav.Link href="#pricing">Pricing</Nav.Link>
+    </Nav>
+  </Navbar>
+
+  <Navbar bg="light" variant="light">
+    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+    <Nav className="mr-auto">
+      <Nav.Link href="#home">Home</Nav.Link>
+      <Nav.Link href="#features">Features</Nav.Link>
+      <Nav.Link href="#pricing">Pricing</Nav.Link>
+    </Nav>
+  </Navbar>
+
+  <Navbar bg="dark" variant="dark">
+    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+    <Nav className="mr-auto">
+      <Nav.Link href="#home">Home</Nav.Link>
+      <Nav.Link href="#features">Features</Nav.Link>
+      <Nav.Link href="#pricing">Pricing</Nav.Link>
+    </Nav>
+  </Navbar>
+```
+
+</ReactCodeBlock>
+</CodePreview>
+
+## Assistive Technology
+
+Ensure accessibility by using a `<nav>` element or, if using a more generic element such as a `<div>`, add a `role="navigation"` to every navbar to explicitly identify it as a landmark region for users of assistive technologies.
+
+## CSS Classes
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ width: 400 }}>Selector</th>
+      <th style={{ width: 400 }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>.navbar-primary .bg-primary</code>
+      </td>
+      <td>
+        This is used to apply colour themes to our custom navbars. Choose from{' '}
+        <code>.navbar-primary</code> for or a primary background color. Then,
+        customize with <code>.bg-primary</code>
+        utility. <br />
+        Note: Color hex-code for primary colour: #CC000
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>.navbar-light .bg-light</code>
+      </td>
+      <td>
+        This is used to apply colour themes to our custom navbars. Choose from{' '}
+        <code>.navbar-dark</code> for a light background color. Then, customize
+        with <code>.bg-light</code> utility.
+        <br />
+        Note: Color hex-code for light colour: #F3F3F2
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>.navbar-dark .bg-dark</code>
+      </td>
+      <td>
+        This is used to apply colour themes to our custom navbars. Choose from{' '}
+        <code>.navbar-dark</code> for dark background colors. Then, customize
+        with <code>.bg-dark</code> utility.
+        <br />
+        Note: Color hex-code for dark colour: #444444
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+**Note:** When the container is within your navbar, its horizontal padding is removed at breakpoints lower than your specified `.navbar-expand{-sm|-md|-lg|-xl}` class. This ensures we’re not doubling up on padding unnecessarily on lower viewports when your navbar is collapsed.

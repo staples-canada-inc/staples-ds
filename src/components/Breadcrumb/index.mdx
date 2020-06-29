@@ -1,0 +1,57 @@
+---
+title: Breadcrumbs
+root: '/docs'
+parents: ['Components']
+---
+
+import Breadcrumb from 'react-bootstrap/Breadcrumb'
+import { ComponentPreview } from '../../../../src/pages/components/ComponentPreview.tsx'
+import { CodePreview } from '../../../../src/pages/components/CodePreview.tsx'
+import { HtmlCodeBlock } from '../../../../src/pages/components/HtmlCodeBlock.tsx'
+import { ReactCodeBlock } from '../../../../src/pages/components/ReactCodeBlock.tsx'
+
+# Breadcrumbs
+
+A breadcrumb is a list of links to the parent pages of the current page in hierarchical order. It helps users find their place within a website or web application. Breadcrumbs are often placed horizontally before a page's main content.
+
+<ComponentPreview>
+<Breadcrumb>
+  <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+  <Breadcrumb.Item href="#">Library</Breadcrumb.Item>
+  <Breadcrumb.Item active>Data</Breadcrumb.Item>
+</Breadcrumb>
+</ComponentPreview>
+
+
+
+<CodePreview>
+<HtmlCodeBlock>
+
+```html
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#" role="button">Home</a></li>
+        <li class="breadcrumb-item"><a href="#" role="button">Library</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><span class="active">Data</span></li>
+    </ol>
+</nav>
+```
+
+</HtmlCodeBlock>
+<ReactCodeBlock>
+
+```html
+<Breadcrumb>
+  <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+  <Breadcrumb.Item href="#">Library</Breadcrumb.Item>
+  <Breadcrumb.Item active>Data</Breadcrumb.Item>
+</Breadcrumb>
+```
+
+</ReactCodeBlock>
+</CodePreview>
+
+### Assistive Technology
+  Since breadcrumbs provide a navigation, it’s a good idea to add a meaningful label such as `aria-label="breadcrumb"` to describe the type of navigation provided in the `<nav>` element, as well as applying an `aria-current="page"` to the last item of the set to indicate that it represents the current page.
+
+  For more information, see the [WAI-ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices/#breadcrumb) for the breadcrumb pattern.

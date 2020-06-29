@@ -1,0 +1,48 @@
+// Default
+
+table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #444444;
+    background-color: transparent;
+
+    thead {
+        background: $lightest-gray;
+
+        th {
+            border-top: none !important;
+            vertical-align: bottom;
+            border-bottom: 2px solid #d9d9d6;
+            padding: 1.5rem;
+        }
+    }
+
+    tr {
+
+        th,
+        td {
+            padding: 1.5rem;
+            vertical-align: middle;
+            border-top: 1px solid #d9d9d6;
+        }
+    }
+}
+
+// Dark
+table.table-dark {
+    thead {
+        background: $dark-gray;
+    }
+}
+
+.table-hover tbody tr:hover {
+    background-color: $lightest-blue;
+
+    td {
+        font-family: TT Norms Medium;
+    }
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: $lightest-blue;
+}

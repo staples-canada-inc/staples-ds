@@ -1,0 +1,120 @@
+---
+title: Tabs
+root: '/docs'
+parents: ['Components']
+---
+
+import { ComponentPreview } from '../../../../src/pages/components/ComponentPreview.tsx'
+import { CodePreview } from '../../../../src/pages/components/CodePreview.tsx'
+import { HtmlCodeBlock } from '../../../../src/pages/components/HtmlCodeBlock.tsx'
+import { ReactCodeBlock } from '../../../../src/pages/components/ReactCodeBlock.tsx'
+import Tabs from 'react-bootstrap/Tabs'
+import Tab from 'react-bootstrap/Tab'
+
+# Tabs
+
+Tabs are used to quickly switch between views or navigate content within the same context. We have two styles of tabs which can be used for Staples digital.
+
+
+## Simple Tabs
+
+A basic tab style where the tab in view is outlined. You can set a tab to be active by default by assigning the CSS class `.active`.
+
+<ComponentPreview>
+<Tabs defaultActiveKey="tab-2" id="uncontrolled-tab-example">
+    <Tab eventKey="tab-1" title="Tab 1"></Tab>
+    <Tab eventKey="tab-2" title="Tab 2"></Tab>
+    <Tab eventKey="tab-3" title="Tab 3"></Tab>
+</Tabs>
+</ComponentPreview>
+
+
+<CodePreview>
+<HtmlCodeBlock>
+
+```html
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" href="# ">Tab 1</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Tab 2</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" hreef="#">Tab 3</a>
+  </li>
+</ul>
+```
+
+</HtmlCodeBlock>
+<ReactCodeBlock>
+
+```html
+<Tabs defaultActiveKey="tab-2" id="uncontrolled-tab-example">
+    <Tab eventKey="tab-1" title="Tab 1"></Tab>
+    <Tab eventKey="tab-2" title="Tab 2"></Tab>
+    <Tab eventKey="tab-3" title="Tab 3"></Tab>
+</Tabs>
+```
+
+</ReactCodeBlock>
+</CodePreview>
+
+## Pill Tabs (underlined)
+
+A pill tab style where the tab in view is underlined. The additional tabs act similar to the style above, but underline on hover as well.
+
+Here is an example of how a list of tabs are set up. This is to be done in the order that you wish to list the tabs.
+
+<ComponentPreview>
+<Tabs defaultActiveKey="tab-2" id="uncontrolled-tab-example" variant="pills">
+    <Tab eventKey="tab-1" title="Tab 1"></Tab>
+    <Tab eventKey="tab-2" title="Tab 2"></Tab>
+    <Tab eventKey="tab-3" title="Tab 3"></Tab>
+</Tabs>
+</ComponentPreview>
+
+<CodePreview>
+<HtmlCodeBlock>
+
+```html
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link" href="#">Tab 1</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Tab 2</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Tab 3</a>
+  </li>
+</ul>
+```
+
+</HtmlCodeBlock>
+<ReactCodeBlock>
+
+```html
+<Tabs defaultActiveKey="tab-2" id="uncontrolled-tab-example" variant="pills">
+    <Tab eventKey="tab-1" title="Tab 1"></Tab>
+    <Tab eventKey="tab-2" title="Tab 2"></Tab>
+    <Tab eventKey="tab-3" title="Tab 3"></Tab>
+</Tabs>
+```
+
+</ReactCodeBlock>
+</CodePreview>
+
+
+## Responsive Tabs
+
+Tabs can behave responsively in one of two ways. They can either become an accordian(otherwise known as a collapse) or stack into a list group that is often positioned at the top of the page.
+
+
+## Usage
+
+Each tab label describes its content and sets user expectations. Labels are short and concise. Keep in mind that at mobile widths, the character length of a title will impact the experience.
+
+A maximum of 5-6 tabs may be displayed. If additional tabs are required, consider using a side navigation to organize content.
+
+Regardless of tab style, the current tab's text colour will use the Charcoal (#444444) and the alternate tabs will remain Dark Blue (#198294).

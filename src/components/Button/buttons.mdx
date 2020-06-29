@@ -1,0 +1,375 @@
+---
+title: Buttons
+root: '/docs'
+parents: ['Components']
+---
+
+import { ComponentPreview } from '../../../../src/pages/components/ComponentPreview.tsx'
+import { CodePreview } from '../../../../src/pages/components/CodePreview.tsx'
+import { HtmlCodeBlock } from '../../../../src/pages/components/HtmlCodeBlock.tsx'
+import { ReactCodeBlock } from '../../../../src/pages/components/ReactCodeBlock.tsx'
+import Button from 'react-bootstrap/Button'
+import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
+import ToggleButton from 'react-bootstrap/ToggleButton'
+import ButtonGroup from 'react-bootstrap/ButtonGroup'
+
+
+# Buttons
+
+## Button Tags
+
+The `.btn` classes are designed to be used with the `<button>` element. However, you can also use these classes on `<a>` or `<input>` elements (though some browsers may apply a slightly different rendering).
+
+## Buttons
+
+<ComponentPreview>
+  <Button variant="primary" className="mr-2">
+    Primary
+  </Button>
+  <Button variant="secondary" className="mr-2">
+    Secondary
+  </Button>
+  <Button variant="tertiary" className="mr-2">
+    Tertiary
+  </Button>
+</ComponentPreview>
+
+
+<CodePreview>
+<HtmlCodeBlock>
+
+```html
+<!-- Used with "button" element -->
+<button class="btn btn-primary">Primay</button>
+<button class="btn btn-secondary">Secondary</button>
+<button class="btn btn-tertiary">Tertiary</button>
+
+<!-- Used with "a" element -->
+<a class="btn btn-primary" href="#" role="button">Primay</a>
+<a class="btn btn-secondary" href="#" role="button">Secondary</a>
+<a class="btn btn-tertiary" href="#" role="button">Tertiary</a>
+
+<!-- Used with "input" element -->
+<input class="btn btn-primary" value="PRIMARY" onclick="msg()" />
+<input class="btn btn-secondary" value="SECONDARY" onclick="msg" />
+<input class="btn btn-tertiary" value="TERTIARY" onclick="msg()" />
+```
+
+</HtmlCodeBlock>
+<ReactCodeBlock>
+
+```html
+<Button variant="primary">Primary</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="tertiary">Tertiary</Button>
+```
+
+</ReactCodeBlock>
+</CodePreview>
+
+
+## Group Buttons
+
+Note that these buttons have spaces between them. You can also group them with the `.btn-group` class. Here is an example.
+
+Wrap a series of buttons with `.btn` in `.btn-group`.
+
+**Note: Assistive Technology**
+In order for assistive technologies (such as screen readers) to convey that a series of buttons is grouped, an appropriate role attribute needs to be provided. For button groups, this would be `role="group"`, while toolbars should have a `role="toolbar"`.
+
+In addition, groups and toolbars should be given an explicit label, as most assistive technologies will otherwise not announce them, despite the presence of the correct role attribute. In the examples provided here, we use `aria-label`, but alternatives such as `aria-labelledby` can also be used.
+
+<ComponentPreview>
+<ButtonGroup aria-label="Basic example">
+  <Button variant="secondary">Left</Button>
+  <Button variant="secondary">Middle</Button>
+  <Button variant="secondary">Right</Button>
+</ButtonGroup>
+</ComponentPreview>
+
+
+<CodePreview>
+<HtmlCodeBlock>
+
+```html
+<div class="btn-group" role="group" aria-label="Basic example">
+  <button class="btn btn-secondary">Item Left</button>
+  <button class="btn btn-secondary">Item Middle</button>
+  <button class="btn btn-secondary">Item Right</button>
+</div>
+```
+
+</HtmlCodeBlock>
+<ReactCodeBlock>
+
+```html
+<ButtonGroup aria-label="Basic example">
+  <Button variant="secondary">Left</Button>
+  <Button variant="secondary">Middle</Button>
+  <Button variant="secondary">Right</Button>
+</ButtonGroup>
+```
+
+</ReactCodeBlock>
+</CodePreview>
+
+
+
+## Call to Action Button
+
+Call to Action (CTA) buttons are typically used in banners and carousels, or anywhere we would want the user to action a particular item. They may also be used on busy backgrounds to increase visibility. There is a limit of one CTA button per page and should be used for the most prominent action on the page. For additional buttons, please resort to one of the default styles.
+**There is a limit of one CTA button per page and should be used for the most prominent action on the page.**
+
+## CTA Buttons
+
+<ComponentPreview>
+  <Button variant="primary" className="mr-2 cta">Primary</Button>
+  <Button variant="secondary" className="mr-2 cta">Secondary</Button>
+  <Button variant="tertiary" className="mr-2 cta">Tertiary</Button>
+  <br />
+  <Button variant="primary" className="mr-2 mt-3 cta" size="lg">Large Primary</Button>
+  <Button variant="secondary" className="mr-2 mt-3 cta" size="lg">Large Secondary</Button>
+  <Button variant="tertiary" className="mr-2 mt-3 cta" size="lg">Large Tertiary</Button>
+</ComponentPreview>
+
+<CodePreview>
+<HtmlCodeBlock>
+
+```html
+<button class="btn btn-primary">Primary</button>
+<button class="btn btn-secondary">Secondary</button>
+<button class="btn btn-tertiary">Tertiary</button>
+
+<button class="btn btn-primary btn-lg">Large Primary</button>
+<button class="btn btn-secondary btn-lg">Large Secondary</button>
+<button class="btn btn-tertiary btn-lg">Large Tertiary</button>
+```
+
+</HtmlCodeBlock>
+<ReactCodeBlock>
+
+```html
+<Button variant="primary">Primary</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="tertiary">Tertiary</Button>
+
+<Button variant="primary" size="lg">Large Primary</Button>
+<Button variant="secondary" size="lg">Large Secondary</Button>
+<Button variant="tertiary" size="lg">Large Tertiary</Button>
+```
+
+</ReactCodeBlock>
+</CodePreview>
+
+
+
+## Sizes
+
+Fancy larger or smaller buttons? Add `.btn-lg` or `.btn-sm` for additional sizes.
+
+<ComponentPreview>
+    <Button variant="primary" className="mr-2 mt-3" size="sm">Small Primary</Button>
+    <Button variant="secondary" className="mr-2 mt-3" size="sm">Small Secondary</Button>
+    <Button variant="tertiary" className="mr-2 mt-3" size="sm">Small Tertiary</Button>
+    <br />
+    <Button variant="primary" className="mr-2 mt-3" size="md">Primary</Button>
+    <Button variant="secondary" className="mr-2 mt-3" size="md">Secondary</Button>
+    <Button variant="tertiary" className="mr-2 mt-3" size="md">Tertiary</Button>
+    <br />
+    <Button variant="primary" className="mr-2 mt-3" size="lg">Large Primary</Button>
+    <Button variant="secondary" className="mr-2 mt-3" size="lg">Large Secondary</Button>
+    <Button variant="tertiary" className="mr-2 mt-3" size="lg">Large Tertiary</Button>
+</ComponentPreview>
+
+<CodePreview>
+<HtmlCodeBlock>
+
+```html
+<button class="btn btn-primary btn-sm">Small Primary</button>
+<button class="btn btn-secondary btn-sm">Small Secondary</button>
+<button class="btn btn-tertiary btn-sm">Small Tertiary</button>
+
+<button class="btn btn-primary btn-md">Primary</button>
+<button class="btn btn-secondary btn-md">Secondary</button>
+<button class="btn btn-tertiary btn-md">Tertiary</button>
+
+<button class="btn btn-primary btn-lg">Large Primary</button>
+<button class="btn btn-secondary btn-lg">Large Secondary</button>
+<button class="btn btn-tertiary btn-lg">Large Tertiary</button>
+```
+
+</HtmlCodeBlock>
+<ReactCodeBlock>
+
+```html
+<Button variant="primary" size="sm">Small Primary</Button>
+<Button variant="secondary" size="sm">Small Secondary</Button>
+<Button variant="tertiary" size="sm">Small Tertiary</Button>
+
+<Button variant="primary" size="md">Primary</Button>
+<Button variant="secondary" size="md">Secondary</Button>
+<Button variant="tertiary" size="md">Tertiary</Button>
+
+<Button variant="primary" size="lg">Large Primary</Button>
+<Button variant="secondary" size="lg">Large Secondary</Button>
+<Button variant="tertiary" size="lg">Large Tertiary</Button>
+```
+
+</ReactCodeBlock>
+</CodePreview>
+
+
+## Block Button
+
+Create block level buttons that span the full width of a parent-by adding `.btn-block`.
+
+<ComponentPreview>
+  <Button variant="primary" size="lg" block>Large Primary</Button>
+  <Button variant="secondary" size="lg" block>Large Secondary</Button>
+  <Button variant="tertiary" size="lg" block>Large Tertiary</Button>
+</ComponentPreview>
+
+<CodePreview>
+<HtmlCodeBlock>
+
+```html
+<button class="btn btn-primary btn-block">Primary</button>
+<button class="btn btn-secondary btn-block">Secondary</button>
+<button class="btn btn-tertiary btn-block">Tertiary</button>
+```
+
+</HtmlCodeBlock>
+<ReactCodeBlock>
+
+```html
+<Button variant="primary" block>Large Primary</Button>
+<Button variant="secondary" block>Large Secondary</Button>
+<Button variant="tertiary" block>Large Tertiary</Button>
+```
+
+</ReactCodeBlock>
+</CodePreview>
+
+## Active state
+
+Buttons will appear pressed (with a darker background, darker border and inset shadow) when active. There’s no need to add a class to `<button>`s as they use a pseudo-class. However, you can still force the same active appearance with `.active` (and include the aria-pressed='true' attribute) should you need to replicate the state programmatically.
+
+Add `.active` to items in the dropdown to style them as active.
+
+## Active Button
+
+<ComponentPreview>
+  <Button variant="primary" active className="mr-2">Primary</Button>
+  <Button variant="secondary" active className="mr-2">Secondary</Button>
+  <Button variant="tertiary" active className="mr-2">Tertiary</Button>
+</ComponentPreview>
+
+<CodePreview>
+<HtmlCodeBlock>
+
+```html
+<button class="btn btn-primary active">Primary</button>
+<button class="btn btn-secondary active">Secondary</button>
+<button class="btn btn-tertiary active">Tertiary</button>
+```
+
+</HtmlCodeBlock>
+<ReactCodeBlock>
+
+```html
+<Button variant="primary" active>Primary</Button>
+<Button variant="secondary" active>Secondary</Button>
+<Button variant="tertiary" active>Tertiary</Button>
+```
+
+</ReactCodeBlock>
+</CodePreview>
+
+## Disabled state
+
+Make buttons look inactive by adding the disabled boolean attribute to any `<button>` element.
+
+**However to make the style for disabled buttons in compliance to Staples Design System we would use another colour class for disabled buttons**
+
+Add `.disabled` to items in the dropdown to style them as disabled.
+
+## Disabled Default Button
+
+<ComponentPreview>
+  <Button variant="primary" disabled className="mr-2">Primary</Button>
+  <Button variant="secondary" disabled className="mr-2">Secondary</Button>
+  <Button variant="tertiary" disabled className="mr-2">Tertiary</Button>
+</ComponentPreview>
+
+<CodePreview>
+<HtmlCodeBlock>
+
+```html
+<button class="btn btn-tertiary" disabled>Primary</button>
+<button class="btn btn-tertiary" disabled>Secondary</button>
+<button class="btn btn-tertiary" disabled>Tertiary</button>
+```
+
+</HtmlCodeBlock>
+<ReactCodeBlock>
+
+```html
+  <Button variant="primary" disabled>Primary</Button>
+  <Button variant="secondary" disabled>Secondary</Button>
+  <Button variant="tertiary" disabled>Tertiary</Button>
+```
+
+</ReactCodeBlock>
+</CodePreview>
+
+## Disabled Call To Action Button
+
+<ComponentPreview>
+  <Button variant="primary" disabled className="mr-2 cta">Primary</Button>
+  <Button variant="secondary" disabled className="mr-2 cta">Secondary</Button>
+  <Button variant="tertiary" disabled className="mr-2 cta">Tertiary</Button>
+</ComponentPreview>
+
+<CodePreview>
+<HtmlCodeBlock>
+
+```html
+<button class="btn btn-primary cta" disabled>Primary</button>
+<button class="btn btn-secondary cta" disabled>Secondary</button>
+<button class="btn btn-tertiary cta" disabled>Tertiary</button>
+```
+
+</HtmlCodeBlock>
+<ReactCodeBlock>
+
+```html
+  <Button variant="primary" className="cta" disabled>Primary</Button>
+  <Button variant="secondary" className="cta" disabled>Secondary</Button>
+  <Button variant="tertiary" className="cta" disabled>Tertiary</Button>
+```
+
+</ReactCodeBlock>
+</CodePreview>
+
+
+## Link functionality caveat
+
+The `.disabled` class uses `pointer-events: none` to try to disable the link functionality of `<a>`, but that CSS property is not yet standardized. In addition, even in browsers that do support `pointer-events: none`, keyboard navigation remains unaffected, meaning that sighted keyboard users and users of assistive technologies will still be able to activate these links. So to be safe, add a `tabindex='-1'` attribute on these links (to prevent them from receiving keyboard focus) and use custom JavaScript to disable their functionality.
+
+Disabled buttons using the `<a>` element behave a bit differently:
+
+<ul>
+  <li>
+    It doesn't support the disabled attribute, so you must add the .disabled
+    class to make it visually appear disabled.
+  </li>
+  <li>
+    Some future-friendly styles are included to disable all pointer-events on
+    anchor buttons. In browsers which support that property, you won’t see the
+    disabled cursor at all.
+  </li>
+  <li>
+    Disabled buttons should include the aria-disabled='true' attribute to
+    indicate the state of the element to assistive technologies.
+  </li>
+</ul>
